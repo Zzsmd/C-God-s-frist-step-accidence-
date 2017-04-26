@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _170320.平均函数002
+{
+    class Program
+    {
+        private static int GetBelowScore(int[] score)
+        {
+            double sum = 0;
+            foreach (double num in score)
+            {
+                sum += num;
+            }
+            double average = sum / score.Length;//string类型的变量无法使用“/”“%”;
+            int belowCount = 0;
+            foreach (double num in score)
+            {
+                if (num < average)
+                {
+                    belowCount++;
+                }
+            }
+            return belowCount;
+        }
+        static void Main(string[] args)
+        {
+            int[] score = { 10, 20, 30, 40, 50, 60, 70, 80, 90 };
+            Console.WriteLine("低于平均分数的学生个数：");
+            Console.WriteLine(GetBelowScore(score));
+            Console.ReadLine();
+        }
+    }
+}
